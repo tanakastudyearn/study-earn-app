@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environment Config Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+        <h1 class="text-2xl font-bold mb-6">Environment Configuration Test</h1>
+        
+        <div class="space-y-6">
+            <div>
+                <h2 class="text-lg font-semibold mb-2">API Configuration</h2>
+                <pre id="apiConfig" class="bg-gray-50 p-4 rounded"></pre>
+            </div>
+
+            <div>
+                <h2 class="text-lg font-semibold mb-2">Feature Flags</h2>
+                <pre id="featureFlags" class="bg-gray-50 p-4 rounded"></pre>
+            </div>
+
+            <div>
+                <h2 class="text-lg font-semibold mb-2">Points System</h2>
+                <pre id="pointsSystem" class="bg-gray-50 p-4 rounded"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Display mock configuration for testing
+        const config = {
+            API: {
+                BASE_URL: 'https://api.studyearn.app',
+                VERSION: 'v1',
+                TIMEOUT: 30000
+            },
+            FEATURES: {
+                SOCIAL_LOGIN: false,
+                BIOMETRIC_AUTH: false,
+                PUSH_NOTIFICATIONS: true,
+                OFFLINE_MODE: true
+            },
+            POINTS: {
+                MIN_WITHDRAWAL: 500,
+                CONVERSION_RATE: 0.01,
+                DAILY_BONUS: 10,
+                STREAK_BONUS: 20
+            }
+        };
+
+        document.getElementById('apiConfig').textContent = JSON.stringify(config.API, null, 2);
+        document.getElementById('featureFlags').textContent = JSON.stringify(config.FEATURES, null, 2);
+        document.getElementById('pointsSystem').textContent = JSON.stringify(config.POINTS, null, 2);
+    </script>
+</body>
+</html>
